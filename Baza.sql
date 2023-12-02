@@ -277,44 +277,43 @@
 insert into Products (Prd_Model,Prd_Color,Prd_Size,Prd_Description,Prd_Unit)
 values ('SS23','1S','XL','Bluza','Szt'),
 ('SS23JR','10S','XL','Koszulka JR','Szt'),
-('SS23RJ','10S','L','Kurtka Zimowa','Szt')
-('SS23RJ','10S','L','Kurtka Zimowa','Szt')
-('SS23RJ','10S','L','Kurtka Zimowa','Szt')
-('SS23RJ','10S','L','Kurtka Zimowa','Szt')
-('SS23RJ','10S','L','Kurtka Zimowa','Szt')
-('SS23RJ','10S','L','Kurtka Zimowa','Szt')
-('SS23RJ','10S','L','Kurtka Zimowa','Szt')
-('SS23RJ','10S','L','Kurtka Zimowa','Szt')
-('SS23RJ','10S','L','Kurtka Zimowa','Szt')
-('SS23RJ','10S','L','Kurtka Zimowa','Szt')
-('SS23RJ','10S','L','Kurtka Zimowa','Szt')
-('SS23RJ','10S','L','Kurtka Zimowa','Szt')
-('SS23RJ','10S','L','Kurtka Zimowa','Szt')
-('SS23RJ','10S','L','Kurtka Zimowa','Szt')
-('SS23RJ','10S','L','Kurtka Zimowa','Szt')
-('SS23RJ','10S','L','Kurtka Zimowa','Szt')
-('SS23RJ','10S','L','Kurtka Zimowa','Szt')
-('SS23RJ','10S','L','Kurtka Zimowa','Szt')
-('SS23RJ','10S','L','Kurtka Zimowa','Szt')
-('SS23RJ','10S','L','Kurtka Zimowa','Szt')
-('SS23RJ','10S','L','Kurtka Zimowa','Szt')
-('SS23RJ','10S','L','Kurtka Zimowa','Szt')
-('SS23RJ','10S','L','Kurtka Zimowa','Szt')
-('SS23RJ','10S','L','Kurtka Zimowa','Szt')
-('SS23RJ','10S','L','Kurtka Zimowa','Szt')
-('SS23RJ','10S','L','Kurtka Zimowa','Szt')
-('SS23RJ','10S','L','Kurtka Zimowa','Szt')
-('SS23RJ','10S','L','Kurtka Zimowa','Szt')
-('SS23RJ','10S','L','Kurtka Zimowa','Szt')
-('SS23RJ','10S','L','Kurtka Zimowa','Szt')
-('SS23RJ','10S','L','Kurtka Zimowa','Szt')
-('SS23RJ','10S','L','Kurtka Zimowa','Szt')
-('SS23RJ','10S','L','Kurtka Zimowa','Szt')
-('SS23RJ','10S','L','Kurtka Zimowa','Szt')
-('SS23RJ','10S','L','Kurtka Zimowa','Szt')
-('SS23RJ','10S','L','Kurtka Zimowa','Szt')
-('SS23RJ','10S','L','Kurtka Zimowa','Szt')
-('SS23RJ','10S','L','Kurtka Zimowa','Szt')
-('SS23RJ','10S','L','Kurtka Zimowa','Szt')
-('SS23RJ','10S','L','Kurtka Zimowa','Szt')
-
+('SS24JR','9S','L','Kurtka Zimowa JR','Szt'),
+('SS24','112L','M','Kurtka Zimowa','Szt'),
+('SS25','14P','L','Czapka Zimowa','Szt'),
+('SS28','23F','S','Spodnie Zimowe','Szt'),
+('SS28JR','10S','M','Spodnie Zimowe JR','Szt'),
+('SS29','19S','L','Kurtka Jesienna','Szt'),
+('SS29JR','19S','M','Kurtka Jesienna JR','Szt'),
+('SS39','67S','M','Rękawiczki Zimowe','Szt'),
+('SS39JR','76M','S','Rękawiczki Zimowe JR','Szt'),
+('SS34','57G','L','Skarpety','Szt'),
+('SS34JR','57G','M','Skarpety JR','Szt'),
+('SS74','41E','M','Spodnie Narciarskie','Szt'),
+('SS74JR','41E','L','Spodnie Narciarskie JR','Szt'),
+('SS11','72K','M','Leginsy','Szt'),
+('SS11JR','72K','S','Leginsy JR','Szt'),
+('SS12','103M','L','Spodenki do biegania','Szt'),
+('SS12JR','103M','M','Spodenki do biegania JR','Szt'),
+('SS202','110A','L','Dresy','Szt'),
+('SS202JR','110A','S','Dresy JR','Szt'),
+('SS09','303S','L','Koszulka do biegania','Szt'),
+('SS09JR','303S','L','Koszulka do biegania JR','Szt'),
+('SS86','08S','M','Kurtka Zimowa','Szt'),
+('SS86JR','08S','S','Kurtka Zimowa JR','Szt'),
+('SS233','10S','L','Koszulka do koszykówki','Szt'),
+('SS233JR','10S','M','Koszulka do koszykówki JR','Szt'),
+('SS93','13S','S','Czapka Zimowa','Szt'),
+('SS93JR','13S','S','Czapka Zimowa JR','Szt'),
+('SS03','49Q','M','Spodnie Snowboardowe','Szt'),
+('SS03JR','49Q','S','Spodnie Snowboardowe JR','Szt'),
+('SS17','150S','M','Polar','Szt'),
+('SS17JR','150S','L','Polar JR','Szt'),
+('SS29','20W','XL','Kurtka Snowboardowa','Szt'),
+('SS29JR','20W','L','Kurtka Snowboardowa JR','Szt'),
+('SS40','50S','S','Skarpety','Szt'),
+('SS40JR','50S','M','Skarpety JR','Szt'),
+('SS37','30S','L','Kurtka Zimowa','Szt'),
+('SS37JR','30S','S','Kurtka Zimowa JR','Szt'),
+('SS203','94P','L','Kąpielówki','Szt'),
+('SS203JR','94P','M','Kąpielówki JR','Szt'),
+('SS201','203D','XL','Kurtka Zimowa','Szt');
