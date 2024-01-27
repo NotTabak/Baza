@@ -1,0 +1,99 @@
+Opis Szymona
+Zgodnie z wymaganiami klienta aplikacja ma za zadanie dostarczac informacji zwiazanych z sklepem Ecom(produkt,transakcje,detale transakcji, klienci, pracownicy,sklepy stacjonarne, 
+
+
+
+
+
+
+3.2 Fakty (reguly biznesowe)
+Rejestracja transakcji osbywa sie w sklepie w momencie wykonania transakcji sprzedazy. Wielkosc parakgonu zalezy od liczby zakupionych produktów.
+
+1. Transakcja jest jednoznacznie identyfikowana poprzez numer transakcji.
+2. Numer paragonu dla transakcji jest unikalny w obrebie dnia oraz danej lokalizacji.
+3. Lokalizacja (sklep) w którym zostala wykonana transakcja jest jednoznacznie identyfikowany.
+4. Pracownik, który zarejestrowal transakcje jest jednoznacznie identyfikowany.
+5. Transakcja jest powiazana z detalami transakcji. Naglówek transakcji moze zawierac wiele detali z rózna liczba sztuk.
+6. Zakupiona liczba sztuk produktu nie jest jednoznaczna w liczba wyslanych sztuk produktu do klienta (produkt wybrakowany nie zostanie wyslany).
+7. Sklepy maja rózny metraz, wiec maja ograniczona liczbe sztuk produktów w lokalizacji.
+8. Transakcja moze zostac anulowana.
+9. Tworzenie histori zmian dla modyfikowanych pól.
+
+Model logiczny danych 
+
+3.3.1 Opis encji i atrybutów oraz ich dziedzin.
+Klient
+	Nazwa - obowiazkowe napis o dlugosci nie wiecej niz 50 znaków,
+	Adres - obowiazkowe napis o dlugosci nie wiecej niz 200 znaków,
+	Data urodzenia -  pole obowiazkowe nie moze byc data przyszla, wiek wynikajacy z daty nie moze byc mniejszy niz 13 lat,
+	Telefon - pole nie obowiazkowe, pole numeryczne,
+	Email - obowiazkowe, napis o dlugosci nie wiecej niz 100 znaków
+
+Pracownik sklepu (kierownik / kasjer)
+	Nazwa - obowiazkowe napis o dlugosci nie wiecej niz 50 znaków,
+	Adres - obowiazkowe napis o dlugosci nie wiecej niz 200 znaków,
+	Data urodzenia -  obowiazkowe nie moze byc data przyszla, wiek wynikajacy z daty nie moze byc mniejszy niz 16 lat,
+	Telefon - obowiazkowe, pole numeryczne,
+	Email - obowiazkowe, napis o dlugosci nie wiecej niz 100 znaków
+
+Transakcja
+	Identyfikator sklepu - obowiazkowe, numeryczne (id sklepu)
+	Identyfikator klienta - obowiazkowe, numeryczne (id klient)
+	Identyfikator sprzedawcy - obowiazkowe, numeryczne (id pracownika)
+	Kwota netto - obowiazkowe, kwota netto typu money
+	Kwota brutto - obowiazkowe, kwota brutto typu money
+	Kwota podatku - obowiazkowe, kwota podatku typu money
+	Data sprzedazy  - obowiazkowe, domyslnie data biezaca pobierane funkcja getdate() gdy puste,
+	Status transakcji - obowiazkowe, status transakcji
+--	Sklep trn_store varchar(100) do usuniecia
+	Numer rachunku - obowiazkowe, id rachunku
+
+Detal transakcji
+	Identyfikator transakcji - obowiazkowe, numeryczne (id transakcji)
+	Identyfikator produktu - obowiazkowe, numeryczne (id produktu)
+	Typ produktu - obowiazkowe napis o dlugosci nie wiecej niz 100 znaków,
+	SKU produktu - obowiazkowe napis o dlugosci nie wiecej niz 100 znaków,
+	Data sprzedazy - obowiazkowe, domyslnie data biezaca pobierane funkcja getdate() gdy puste,
+	Data modyfikacji - nie obowiazkowe
+	Identyfikator sklepu - obowiazkowe, wartosc numeryczna (id sklepu)
+	Wartosc zamówionego towaru - obowiazkowe, kwota brutto typu money,
+	Liczba sztuk zamówiona - obowiazkowe, wartosc numeryczna (liczba sztuk zamówiona)
+	Liczba sztuk wyslana (odebrana) - obowiazkowe, wartosc numeryczna (liczba sztuk wyslana)
+
+
+Uzytkownik systemu
+	Identyfikator - nie obowiazkowe, numeryczne (id przelozonego)
+	Email - obowiazkowe, napis o dlugosci nie wiecej niz 100 znaków
+	Status - obowiazkowe, wartosc numeryczna
+	Data utworzenia - obowiazkowe, domyslnie data i czas -  biezace pobierane funkcja getdate(),
+	Data modyfikacji - nie obowiazkowe, pole typu data czas,
+	Haslo - obowiazkowe napis o dlugosci nie wiecej niz 200 znaków,
+	Imie - obowiazkowe napis o dlugosci nie wiecej niz 50 znaków,
+	Nazwisko - obowiazkowe napis o dlugosci nie wiecej niz 50 znaków
+
+Produkt
+	Model - obowiazkowe, napis o dlugosci nie wiecej niz 100 znaków,
+	Kolor - obowiazkowe, napis o dlugosci nie wiecej niz 50 znaków,
+	Rozmiar - obowiazkowe, napis o dlugosci nie wiecej niz 50 znaków,
+	Opis - obowiazkowe, napis o dlugosci nie wiecej niz 100 znaków,
+	Data utworzenia - obowiazkowe, domyslnie data i czas -  biezace pobierane funkcja getdate(),
+	Data modyfikacji - nie obowiazkowe, pole typu data czas,
+	Jednostka - nie obowiazkowe, napis o dlugosci nie wiecej niz 50 znaków,
+
+Sklep
+	Nazwa - obowiazkowe napis o dlugosci nie wiecej niz 100 znaków,
+	Status - obowiazkowe napis o dlugosci nie wiecej niz 200 znaków,
+	Data utworzenia - obowiazkowe, domyslnie data i czas -  biezace pobierane funkcja getdate(),
+	Data modyfikacji - nie obowiazkowe, pole typu data czas,
+	Kod - obowiazkowe napis o dlugosci nie wiecej niz 100 znaków,
+	Nazwa - obowiazkowe napis o dlugosci nie wiecej niz 100 znaków,
+	Metraz - obowiazkowe, pole float w m^2,
+	Kierownik - obowiazkowe, numeryczne (id kierownika - Pracownik)
+
+Historia zmian
+	Domena -  obowiazkowe napis o dlugosci nie wiecej niz 20 znaków,
+	Kod -  obowiazkowe napis o dlugosci nie wiecej niz 20 znaków,
+	Stara wartosc tekst - obowiazkowe napis o dlugosci nie wiecej niz 100 znaków,
+	Nowa wartosc tekst - obowiazkowe napis o dlugosci nie wiecej niz 100 znaków,
+	Kto zmienil  - obowiazkowe, numeryczne identyfikator osoby zmieniajacej (Uzytkownik systemu) - domyslnie system
+	Data utworzenia - obowiazkowe, domyslnie data i czas -  biezace pobierane funkcja getdate(),

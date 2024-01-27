@@ -1,58 +1,68 @@
 ﻿USE [Ecom_Shop]
 GO
 
-
 SET IDENTITY_INSERT [Ecom_Shop].[dbo].[users] ON
 
-INSERT INTO [dbo].[users](usr_id, usr_email, usr_status, usr_fristname, usr_lastname)
-VALUES(1, 'admin@ecom_shop.pl',1,'Admin','Admin');
+INSERT INTO [dbo].[users](usr_id, usr_email, usr_status, usr_pass, usr_fristname, usr_lastname)
+VALUES(1, 'admin@ecom_shop.pl',1,'AQAAAAEAACcQAAAAEFRy3bqHxPqCtU/2aXMYD0plZb4mssPXzWbfYLb5V75yyCFGb3Z4HpfjaLVn76tJ2g==', 'Admin','Admin');
 
 SET IDENTITY_INSERT [Ecom_Shop].[dbo].[users] OFF
 
+SET IDENTITY_INSERT [Ecom_Shop].[dbo].[employees] ON
+
+insert into employees (emp_id, emp_name, emp_adress, emp_birthday_date, emp_phone_number, emp_email_adress)
+values 
+(1, 'Piotr Biwok','Ofiar Dąbia 6','2001-01-01',989076904,'Biwok@Onet.pl'),
+(2, 'Klara Budzińska','Czerwone Maki 15','1995-11-30', 678672534,'Budzińska10@gmail.com'),
+(3, 'Barbara Gil', 'Prądnik Czerwony 4','1994-07-15',643823016,'BasiaGil@gmail.com');
+
+SET IDENTITY_INSERT [Ecom_Shop].[dbo].[employees] OFF
+
+
+
 SET IDENTITY_INSERT [Ecom_Shop].[dbo].[stores] ON
 
-insert into stores (str_id, str_name, str_status, str_code, str_adress, str_square,str_usr_id)
-values (1, 'Galeria Kazimierz', 'Active', 'PL0001', 'Podgórska 34',200,1),
-(2, 'Galeria Krakowska', 'Active','PL0002','Pawia 5',250,1),
-(3, 'Bonarka', 'Inactive','PL0003','Kamieńskiego 11',200,1);
+insert into stores (str_id, str_name, str_status, str_code, str_adress, str_square, str_usr_id, str_emp_id)
+values (1, 'Galeria Kazimierz', 'Active', 'PL0001', 'Podgórska 34',200,1, 1),
+(2, 'Galeria Krakowska', 'Active','PL0002','Pawia 5',250, 1, 2),
+(3, 'Bonarka', 'Inactive','PL0003','Kamieńskiego 11',200, 1, 3);
 
 SET IDENTITY_INSERT [Ecom_Shop].[dbo].[stores] OFF
 
 
 SET IDENTITY_INSERT [Ecom_Shop].[dbo].[customers] ON
 
-insert into customers (cst_id, cst_name, cst_adress, cst_age, cst_phone_number, cst_email)
-values (1, 'Mariusz Baran','Polna 3 Michałowice',47,345234232,'Baran@Onet.pl'),
-(2, 'Marianna Nowak','Zakrzowiecka 6 Kraków',40,898000123,'NowakM@gmail.com'),
-(3, 'Karolina Majster','Kwiatowa 5 Wieliczka',24,454321734,'KaroMajster@gmail.com'),
-(4, 'Kinga Bomba','Grzegórzki 9 Kraków',18,456456965,'KiniaBUM@gmail.com'),
-(5, 'Anna Nowakowska','Zakrzowiecka 6 Kraków',40,891109823,'Nowakowska@gmail.com'),
-(6, 'Maria Gertu','Kwiatowa 50 Tenczynek',24,443210034,'mariagertu@gmail.com'),
-(7, 'Ewelina Moda','Grzegórzki 15 Kraków',18,456009651,'moda@gmail.com'),
-(8, 'Adam Więckowski', 'Akacjowa 5 Kraków',23,897098372,'wieckowski@gmail.com'),
-(9, 'Oliwia Dziuba','Gertrudy 32/45 Kraków',34,647843927,'dziuba@Onet.pl'),
-(10, 'Dariusz Malinowski','Ofiar Dąbia 23/2 Kraków',54,782645199,'malinowskidarek@gmail.com'),
-(11, 'Jakub Jakubiak','Legionów 23 Kryspinów',26,900823652,'jjakubiak@gmail.com'),
-(12, 'Paulina Banaszek','Czarna 15 Wieliczka',21,200105672,'pbanaszek@gmail.com'),
-(13, 'Iwona Cieślak','Prądnik Czerwony 12 Kraków',53,563987100,'cieslakiwona@gmail.com'),
-(14,'Andrzej Szostak','Pychowicka 11 Kraków',45,700172838,'szostaka@gmail.com'),
-(15, 'Ewelina Miśkiewicz', 'Czarnowiejska 56 Kraków',39,500212051,'miskiewiczowa@gmail.com'),
-(16, 'Adrian Burda','Matejki 45 Kraków',42,404102764,'burda@gmail.com'),
-(17, 'Adrianna Bednarczyk','Podzamcze 7 Tenczynek',38,302788902,'bedadrianna@gmail.com'),
-(18, 'Julia Jurek','Jurajska 15 Krzeszowice',43,454932711,'jurek@Onet.pl'),
-(19, 'Marcin Żurawski','Rajska 109 Pawlikowice',19,607291982,'zurawski@gmail.com'),
-(20, 'Michał Gwóźdź','Saska 67 Kraków',24,782166090,'gwozdz.michal@gmail.com'),
-(21, 'Jakub Kopeć', 'Jagodowa 11 Węgrzce',54,862091001,'kopec@gmail.com'),
-(22, 'Mateusz Wilczyński','Jaśminowa 8 Węgrzce',23,801210563,'wilczynski@gmail.com'),
-(23, 'Janusz Skrzypek', 'Targowa 104 Zielonki',48,908700121,'skrzypek@gmail.com'),
-(24, 'Michał Bąk', 'Ugorek 77 Kraków',22,700162834,'bakmichal@gmail.com'),
-(25, 'Daria Szeląg','Powstańców 303 Kraków',24,402105791,'szelagdaria@gmail.com'),
-(26, 'Patryk Klimczak','Malinowa 17 Morawica',36,562892092,'klimczak@gmail.com'),
-(27, 'Dominik Wilczek', 'Watykańska 12 Kraków',21,232001902,'wilczek@gmail.com'),
-(28, 'Miłosz Iwanowski','Pijarska 28 Kraków',60,090241083,'iwanowski@gmail.com'),
-(29, 'Gabriela Mikołajczak','Torfowa 25 Choleżyn',32,576090020,'mikolajczak@gmail.com'),
-(30, 'Jakub Błaszczyk','Błotna 23 Kryspinów',24,020425981,'blaszczyk@gmail.com'),
-(31, 'Andrzej Falkowski','Rajska 12 Morawica',24,908976010,'falkowski@gmail.com'),
+insert into customers (cst_id, cst_name, cst_adress, cst_birthday_date, cst_phone_number, cst_email)
+values (1, 'Mariusz Baran','Polna 3 Michałowice','1978-01-01',345234232,'Baran@Onet.pl'),
+(2, 'Marianna Nowak','Zakrzowiecka 6 Kraków','1983-01-01',898000123,'NowakM@gmail.com'),
+(3, 'Karolina Majster','Kwiatowa 5 Wieliczka','1987-01-01',454321734,'KaroMajster@gmail.com'),
+(4, 'Kinga Bomba','Grzegórzki 9 Kraków','1987-01-01',456456965,'KiniaBUM@gmail.com'),
+(5, 'Anna Nowakowska','Zakrzowiecka 6 Kraków','1997-01-01',891109823,'Nowakowska@gmail.com'),
+(6, 'Maria Gertu','Kwiatowa 50 Tenczynek','1999-01-01',443210034,'mariagertu@gmail.com'),
+(7, 'Ewelina Moda','Grzegórzki 15 Kraków','1977-01-01',456009651,'moda@gmail.com'),
+(8, 'Adam Więckowski', 'Akacjowa 5 Kraków','1983-01-01',897098372,'wieckowski@gmail.com'),
+(9, 'Oliwia Dziuba','Gertrudy 32/45 Kraków','1993-01-01',647843927,'dziuba@Onet.pl'),
+(10, 'Dariusz Malinowski','Ofiar Dąbia 23/2 Kraków','1979-01-01',782645199,'malinowskidarek@gmail.com'),
+(11, 'Jakub Jakubiak','Legionów 23 Kryspinów','1963-01-01',900823652,'jjakubiak@gmail.com'),
+(12, 'Paulina Banaszek','Czarna 15 Wieliczka','1953-01-01',200105672,'pbanaszek@gmail.com'),
+(13, 'Iwona Cieślak','Prądnik Czerwony 12 Kraków','1983-01-01',563987100,'cieslakiwona@gmail.com'),
+(14,'Andrzej Szostak','Pychowicka 11 Kraków','1978-01-01',700172838,'szostaka@gmail.com'),
+(15, 'Ewelina Miśkiewicz', 'Czarnowiejska 56 Kraków','1979-01-01',500212051,'miskiewiczowa@gmail.com'),
+(16, 'Adrian Burda','Matejki 45 Kraków','2004-01-01',404102764,'burda@gmail.com'),
+(17, 'Adrianna Bednarczyk','Podzamcze 7 Tenczynek','1993-06-01',302788902,'bedadrianna@gmail.com'),
+(18, 'Julia Jurek','Jurajska 15 Krzeszowice','1973-01-01',454932711,'jurek@Onet.pl'),
+(19, 'Marcin Żurawski','Rajska 109 Pawlikowice','1985-01-01',607291982,'zurawski@gmail.com'),
+(20, 'Michał Gwóźdź','Saska 67 Kraków','1973-01-01',782166090,'gwozdz.michal@gmail.com'),
+(21, 'Jakub Kopeć', 'Jagodowa 11 Węgrzce','1979-01-01',862091001,'kopec@gmail.com'),
+(22, 'Mateusz Wilczyński','Jaśminowa 8 Węgrzce','1989-01-01',801210563,'wilczynski@gmail.com'),
+(23, 'Janusz Skrzypek', 'Targowa 104 Zielonki','1987-01-01',908700121,'skrzypek@gmail.com'),
+(24, 'Michał Bąk', 'Ugorek 77 Kraków','1993-01-01',700162834,'bakmichal@gmail.com'),
+(25, 'Daria Szeląg','Powstańców 303 Kraków','1981-06-21',402105791,'szelagdaria@gmail.com'),
+(27, 'Dominik Wilczek', 'Watykańska 12 Kraków','1991-06-01',232001902,'wilczek@gmail.com'),
+(28, 'Miłosz Iwanowski','Pijarska 28 Kraków','1991-03-28',090241083,'iwanowski@gmail.com'),
+(29, 'Gabriela Mikołajczak','Torfowa 25 Choleżyn','1981-09-13',576090020,'mikolajczak@gmail.com'),
+(30, 'Jakub Błaszczyk','Błotna 23 Kryspinów','2001-06-01',020425981,'blaszczyk@gmail.com');
+/*(31, 'Andrzej Falkowski','Rajska 12 Morawica',24,908976010,'falkowski@gmail.com'),
 (32, 'Maciej Turski','Grodzka 60 Kraków',61,243509103,'turski@gmail.com'),
 (33, 'Martna Banasiak','Algierska 15 Kraków',32,606340717,'banasiak@gmail.com'),
 (34, 'Piotr Cybulski','3 Maja Kraków',27,007943025,'cybulski@gmail.com'),
@@ -126,19 +136,11 @@ values (1, 'Mariusz Baran','Polna 3 Michałowice',47,345234232,'Baran@Onet.pl'),
 (102, 'Katarzyna Musioł','Saska 94 Kraków',18,827282711,'musiol@gmail.com'),
 (103, 'Grzegorz Leśniak','Skalna 12 Kraków',26,872890177,'lesiak@gmail.com'),
 (104, 'Mariusz Kozioł','Polna 14 Kraków',47,325004232,'koziol@Onet.pl'),
-(105, 'Piotr Iwański','Skalica 8 Kraków',49,736288081,'iwanski@gmail.com');
+(105, 'Piotr Iwański','Skalica 8 Kraków',49,736288081,'iwanski@gmail.com');*/
 
 SET IDENTITY_INSERT [Ecom_Shop].[dbo].[customers] OFF
 
-SET IDENTITY_INSERT [Ecom_Shop].[dbo].[employees] ON
 
-insert into employees (emp_id, emp_name,emp_adress,emp_age,emp_phone_number,emp_email_adress)
-values 
-(1, 'Piotr Biwok','Ofiar Dąbia 6',40,989076904,'Biwok@Onet.pl'),
-(2, 'Klara Budzińska','Czerwone Maki 15',27,678672534,'Budzińska10@gmail.com'),
-(3, 'Barbara Gil', 'Prądnik Czerwony 4',25,643823016,'BasiaGil@gmail.com');
-
-SET IDENTITY_INSERT [Ecom_Shop].[dbo].[employees] OFF
 
 SET IDENTITY_INSERT [Ecom_Shop].[dbo].[products] ON
 
@@ -186,31 +188,33 @@ values (1, 'SS23','1S','XL','Bluza','Szt'),
 
 
 SET IDENTITY_INSERT [Ecom_Shop].[dbo].[products] OFF
-insert into products (prd_model, prd_color, prd_size, prd_description, prd_unit)
-values('SS203JR','94P','M','Kąpielówki JR','Szt'),
-('SS201','203D','XL','Kurtka Zimowa','Szt');
+
+--insert into products (prd_model, prd_color, prd_size, prd_description, prd_unit)
+--values('SS203JR','94P','M','Kąpielówki JR','Szt'),
+--('SS201','203D','XL','Kurtka Zimowa','Szt');
 
 SET IDENTITY_INSERT [Ecom_Shop].[dbo].[transactions] ON
-insert into transactions (trn_id, trn_net, trn_gross,trn_tax,trn_status,trn_str_id,trn_receipt_id,trn_cst_id,trn_emp_id)
+
+insert into transactions (trn_id, trn_net, trn_gross, trn_tax, trn_status, trn_str_id, trn_receipt_id, trn_cst_id, trn_emp_id)
 values 
-(1, 200.0,246.0,46,'Completed',1,1,5,1),
-(2, 300.0,369.0,69,'Completed',2,1,10,2),
-(3, 500.0,615.0,115,'Canceled',2,2,15,2),
-(4, 400.0,492.0,92,'Completed',3,1,7,3);
+(1, 200.0, 246.0, 46, 'Completed', 1, 1, 5, 1),
+(2, 300.0, 369.0, 69, 'Completed', 2, 1, 10, 2),
+(3, 500.0, 615.0, 115, 'Canceled', 2, 2, 15, 2),
+(4, 400.0, 492.0, 92, 'Completed', 3, 1, 7, 3);
 
 SET IDENTITY_INSERT [Ecom_Shop].[dbo].[transactions] OFF
 
 SET IDENTITY_INSERT [Ecom_Shop].[dbo].[transaction_details] ON
 
-insert into transaction_details (trd_id, trd_trn_id, trd_prd_id, trd_product_type, trd_shipment_sku, trd_value, trd_qty_ordered, trd_qty_sent)
+insert into transaction_details (trd_id, trd_trn_id, trd_prd_id, trd_product_type, trd_shipment_sku, trd_value, trd_qty_ordered, trd_qty_sent, trd_str_id)
 values 
-(1,1,1,'Bluza','SS23-1S_XL',246.0,1,1),
-(2,2,2,'koszulka','SS23JR-10S-XL',369.0,2,2),
-(3,3,3,'Kurtka Zimowa','SS23RJ-10S-L',615.0,3, 1),
-(4,4,1,'Bluza','SS23-1S_XL',246.0,1,1),
-(5,4,1,'Bluza','SS23-1S_L',246.0,1,1);
+(1,1,1,'Bluza','SS23-1S_XL',246.0,1,1,1),
+(2,2,2,'koszulka','SS23JR-10S-XL',369.0,2,2,2),
+(3,3,3,'Kurtka Zimowa','SS23RJ-10S-L',615.0,3,1,2),
+(4,4,1,'Bluza','SS23-1S_XL',246.0,1,1,3),
+(5,4,1,'Bluza','SS23-1S_L',246.0,1,1,3);
 
 SET IDENTITY_INSERT [Ecom_Shop].[dbo].[transaction_details] OFF
 
 -- Weryfikacja transakcji w sklepach.
-select * from view_transactions
+-- select * from view_transactions
