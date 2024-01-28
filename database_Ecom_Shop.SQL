@@ -150,6 +150,7 @@ alter table transactions add constraint fk_transactions_stores foreign key (trn_
 alter table transactions add constraint fk_transactions_employees foreign key (trn_emp_id) references employees(emp_id);
 alter table transaction_details add constraint fk_transaction_details_transactions  foreign key (trd_trn_id) references transactions(trn_id);
 alter table transaction_details add constraint fk_transaction_details_products  foreign key (trd_prd_id) references products(prd_id);
+alter table transaction_details add constraint fk_transaction_details_stores  foreign key (trd_str_id) references stores(str_id)
 alter table stores add constraint fk_stores_users  foreign key (str_usr_id) references users(usr_id);
 alter table stores add constraint fk_stores_employees  foreign key (str_emp_id) references employees(emp_id);
 alter table users add constraint fk_users_users  foreign key (usr_usr_id) references users(usr_id);
@@ -196,9 +197,11 @@ GO
 -- pobranie transakcji dla sklepu za ostatni dzień 
 -- lub jednego paragony
 CREATE OR ALTER PROCEDURE  GetListOfTransactions(@StoreId int, @ReceiptId int)
+-- exec GetListOfTransactions null, null
 -- exec GetListOfTransactions 2, null
 -- exec GetListOfTransactions 2, 2
 -- exec GetListOfTransactions 2, 1
+-- exec GetListOfTransactions 3, 1
 AS
 BEGIN
 	select
@@ -208,6 +211,7 @@ BEGIN
 	t.trn_receipt_id,
 	t.trn_created_at,
 	t.trn_status, 
+	t.trn_str_id,
 	td.trd_product_type,
 	td.trd_value,
 	td.trd_shipment_sku,
@@ -223,7 +227,7 @@ BEGIN
 	join transaction_details td on td.trd_trn_id = t.trn_id 
 	join products p on td.trd_prd_id = p.prd_id
 	join stores s on s.str_id = t.trn_str_id
-	WHERE str_id = @StoreId
+	WHERE (@StoreId is null or str_id = @StoreId)
 	AND t.trn_created_at >= getDate()-1
 	AND (@ReceiptId is null OR trn_receipt_id = @ReceiptId)
 END
